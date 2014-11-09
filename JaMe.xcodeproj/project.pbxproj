@@ -12,6 +12,7 @@
 		18D19BAD19EEA99300C1A35C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D19BAC19EEA99300C1A35C /* Images.xcassets */; };
 		18D19BB019EEA99300C1A35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D19BAE19EEA99300C1A35C /* Main.storyboard */; };
 		18D19BBC19EEA99300C1A35C /* JaMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BBB19EEA99300C1A35C /* JaMeTests.swift */; };
+		18D19BC619EEAFCB00C1A35C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BC519EEAFCB00C1A35C /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,8 @@
 		18D19BB519EEA99300C1A35C /* JaMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D19BBA19EEA99300C1A35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D19BBB19EEA99300C1A35C /* JaMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaMeTests.swift; sourceTree = "<group>"; };
+		18D19BC519EEAFCB00C1A35C /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		18D19BC719EEB6DE00C1A35C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +79,12 @@
 			isa = PBXGroup;
 			children = (
 				18D19BA819EEA99300C1A35C /* AppDelegate.swift */,
+				18D19BC519EEAFCB00C1A35C /* WindowController.swift */,
 				18D19BAA19EEA99300C1A35C /* ViewController.swift */,
 				18D19BAC19EEA99300C1A35C /* Images.xcassets */,
 				18D19BAE19EEA99300C1A35C /* Main.storyboard */,
 				18D19BA619EEA99300C1A35C /* Supporting Files */,
+				18D19BC719EEB6DE00C1A35C /* MyPlayground.playground */,
 			);
 			path = JaMe;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D19BAB19EEA99300C1A35C /* ViewController.swift in Sources */,
+				18D19BC619EEAFCB00C1A35C /* WindowController.swift in Sources */,
 				18D19BA919EEA99300C1A35C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +403,7 @@
 				18D19BC119EEA99300C1A35C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18D19BC219EEA99300C1A35C /* Build configuration list for PBXNativeTarget "JaMeTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +412,7 @@
 				18D19BC419EEA99300C1A35C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
