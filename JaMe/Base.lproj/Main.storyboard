@@ -673,72 +673,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="7Qm-Xd-sGQ">
-                                <rect key="frame" x="0.0" y="108" width="960" height="132"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Rz-Jg-nL9">
-                                        <rect key="frame" x="424" y="42" width="123" height="53"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Movie" id="QHM-t8-lpn">
-                                            <font key="font" metaFont="system" size="44"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="OHi-97-vr8">
+                                <rect key="frame" x="0.0" y="108" width="960" height="104"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="132" placeholder="YES" id="JGy-rz-fa3"/>
+                                    <constraint firstAttribute="height" constant="104" placeholder="YES" id="IOW-UJ-blM"/>
                                 </constraints>
-                                <ciFilter key="compositingFilter" name="CIMultiplyBlendMode">
-                                    <configuration>
-                                        <null key="inputBackgroundImage"/>
-                                        <null key="inputImage"/>
-                                    </configuration>
-                                </ciFilter>
-                                <backgroundFilters>
-                                    <ciFilter name="CIColorControls">
-                                        <configuration>
-                                            <real key="inputBrightness" value="0.20000000000000001"/>
-                                            <real key="inputContrast" value="0.59999999999999998"/>
-                                            <null key="inputImage"/>
-                                            <real key="inputSaturation" value="0.5"/>
-                                        </configuration>
-                                    </ciFilter>
-                                    <ciFilter name="CIAffineClamp">
-                                        <configuration>
-                                            <null key="inputImage"/>
-                                            <affineTransform key="inputTransform" m11="1" m12="0.0" m21="0.0" m22="1" tX="0.0" tY="0.0"/>
-                                        </configuration>
-                                    </ciFilter>
-                                    <ciFilter name="CIGaussianBlur">
-                                        <configuration>
-                                            <null key="inputImage"/>
-                                            <real key="inputRadius" value="10"/>
-                                        </configuration>
-                                    </ciFilter>
-                                </backgroundFilters>
-                            </customView>
-                            <visualEffectView appearanceType="vibrantLight" fixedFrame="YES" blendingMode="withinWindow" material="light" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="OHi-97-vr8">
-                                <rect key="frame" x="0.0" y="299" width="960" height="104"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FA-tP-wba">
-                                        <rect key="frame" x="413" y="28" width="112" height="48"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Movie" id="ztp-f0-v6d">
-                                            <font key="font" metaFont="system" size="40"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="7Qm-Xd-sGQ" firstAttribute="bottom" secondItem="m2S-Jp-Qdl" secondAttribute="bottom" multiplier="0.8" id="1Nc-SC-ToX"/>
-                            <constraint firstItem="7Qm-Xd-sGQ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="dT1-Dl-zNp"/>
-                            <constraint firstAttribute="trailing" secondItem="7Qm-Xd-sGQ" secondAttribute="trailing" id="oJp-W2-LkU"/>
+                            <constraint firstItem="OHi-97-vr8" firstAttribute="bottom" secondItem="m2S-Jp-Qdl" secondAttribute="bottom" multiplier="0.8" id="54f-Hq-eJo"/>
+                            <constraint firstAttribute="trailing" secondItem="OHi-97-vr8" secondAttribute="trailing" id="n1o-MQ-jUR"/>
+                            <constraint firstItem="OHi-97-vr8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="wlD-LH-Dbj"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="menuView" destination="7Qm-Xd-sGQ" id="yRp-uI-aex"/>
+                        <outlet property="menuView" destination="OHi-97-vr8" id="WvS-of-hVd"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
