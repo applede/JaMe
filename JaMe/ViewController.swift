@@ -9,9 +9,11 @@
 import Cocoa
 
 class ViewController: NSViewController {
+
   @IBOutlet weak var menuView: NSVisualEffectView!
   var labels: [NSTextField] = []
   var fontSize: CGFloat = 0
+  var currentMenu = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,26 +22,47 @@ class ViewController: NSViewController {
     view.layerContentsPlacement = .ScaleProportionallyToFill
     view.translatesAutoresizingMaskIntoConstraints = false
     menuView.translatesAutoresizingMaskIntoConstraints = false
-    let w = view.frame.width / 5
-    var i = 0
-    var m = CGFloat(1.0)
-    fontSize = menuFontSize(view.frame.height)
+    let w = menuItemWidth(view)
+    var x: CGFloat = 0
+    fontSize = menuFontSize(view)
     for l in ["Movie", "TV Show", "Music", "Setting"] {
       let label = createLabel(l, fontSize)
       menuView.addSubview(label)
       menuView.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal,
-        toItem: menuView, attribute: .CenterX, multiplier: m, constant: 0))
+        toItem: menuView, attribute: .CenterX, multiplier: 1, constant: x))
       menuView.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal,
-        toItem: menuView, attribute: .CenterY, multiplier: 1.0, constant: 0))
+        toItem: menuView, attribute: .CenterY, multiplier: 1, constant: 0))
       labels.append(label)
-      m += 0.45
-      ++i
+      x += w
     }
+  }
+
+  override func moveLeft(sender: AnyObject?) {
+    ++currentMenu
+    move()
+  }
+
+  override func moveRight(sender: AnyObject?) {
+    --currentMenu
+    move()
+  }
+
+  func move() {
+    let w = menuItemWidth(view)
+    var x = -w * CGFloat(currentMenu)
+    NSAnimationContext.runAnimationGroup({ (context) in
+      for cons in self.menuView.constraints as [NSLayoutConstraint] {
+        if cons.firstAttribute == .CenterX {
+          cons.animator().constant = x
+          x += w
+        }
+      }
+    }) {}
   }
 
   override func viewDidLayout() {
     super.viewWillLayout()
-    fontSize = menuFontSize(view.frame.height)
+    fontSize = menuFontSize(view)
     for label in labels {
       label.font = NSFont(name: "Helvetica Neue Light", size: fontSize)
     }
@@ -53,6 +76,7 @@ class ViewController: NSViewController {
 
   override func viewDidAppear() {
     super.viewDidAppear()
+    gwindow?.makeFirstResponder(view)
     displayRandomFanart()
   }
 

@@ -32,6 +32,10 @@ func menuFont(size: CGFloat) -> NSFont {
   return NSFont(name: "Helvetica Neue Light", size: size)!
 }
 
-func menuFontSize(height: CGFloat) -> CGFloat {
-  return height / 540 * 44
+func menuFontSize(view: NSView) -> CGFloat {
+  return view.frame.height / 540 * 44
+}
+
+func menuItemWidth(view: NSView) -> CGFloat {
+  return view.frame.width * 0.25
 }
