@@ -11,29 +11,34 @@ import Cocoa
 class ViewController: NSViewController {
 
   @IBOutlet weak var menuView: NSVisualEffectView!
-  var labels: [NSTextField] = []
+  var labels: [LabelView] = []
   var fontSize: CGFloat = 0
   var currentMenu = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.addConstraint(NSLayoutConstraint(item: menuView, attribute: .Height, relatedBy: .Equal,
-                        toItem: view, attribute: .Height, multiplier: 0.15, constant: 0))
+//    view.addConstraint(NSLayoutConstraint(item: menuView, attribute: .Height, relatedBy: .Equal,
+//                        toItem: view, attribute: .Height, multiplier: 0.15, constant: 0))
+    menuView.frame = NSRect(x: 0, y: view.frame.height / 5, width: view.frame.width,
+                            height: view.frame.height / 6)
     view.layerContentsPlacement = .ScaleProportionallyToFill
-    view.translatesAutoresizingMaskIntoConstraints = false
-    menuView.translatesAutoresizingMaskIntoConstraints = false
-    let w = menuItemWidth(view)
-    var x: CGFloat = 0
+    view.translatesAutoresizingMaskIntoConstraints = true
+    menuView.translatesAutoresizingMaskIntoConstraints = true
+//    let w = menuItemWidth(view)
+//    var x: CGFloat = view.frame.width / 2 - w / 2
+//    let y: CGFloat = 0
+//    let h = menuView.frame.height
     fontSize = menuFontSize(view)
     for l in ["Movie", "TV Show", "Music", "Setting"] {
       let label = createLabel(l, fontSize)
+//      label.frame = NSRect(x: x, y: y, width: w, height: h)
       menuView.addSubview(label)
-      menuView.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal,
-        toItem: menuView, attribute: .CenterX, multiplier: 1, constant: x))
-      menuView.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal,
-        toItem: menuView, attribute: .CenterY, multiplier: 1, constant: 0))
+//      menuView.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal,
+//        toItem: menuView, attribute: .CenterX, multiplier: 1, constant: x))
+//      menuView.addConstraint(NSLayoutConstraint(item: label, attribute: .CenterY, relatedBy: .Equal,
+//        toItem: menuView, attribute: .CenterY, multiplier: 1, constant: 0))
       labels.append(label)
-      x += w
+//      x += w
     }
   }
 
@@ -49,22 +54,31 @@ class ViewController: NSViewController {
 
   func move() {
     let w = menuItemWidth(view)
-    var x = -w * CGFloat(currentMenu)
+    var x = menuX(view, currentMenu)
     NSAnimationContext.runAnimationGroup({ (context) in
-      for cons in self.menuView.constraints as [NSLayoutConstraint] {
-        if cons.firstAttribute == .CenterX {
-          cons.animator().constant = x
-          x += w
-        }
-      }
+      self.forEachLabel({ label, x, y, w, h in
+        label.animator().frame.origin.x = x
+      })
     }) {}
   }
 
   override func viewDidLayout() {
-    super.viewWillLayout()
+    super.viewDidLayout()
     fontSize = menuFontSize(view)
+    forEachLabel({ label, x, y, w, h in
+      label.frame = NSRect(x: x, y: y, width: w, height: h)
+      label.font = NSFont(name: "Helvetica Neue Light", size: self.fontSize)
+    })
+  }
+
+  func forEachLabel(fn: (LabelView, CGFloat, CGFloat, CGFloat, CGFloat) -> ()) {
+    let w = menuItemWidth(view)
+    var x = menuX(view, currentMenu)
+    let y: CGFloat = 0
+    let h = menuView.frame.height
     for label in labels {
-      label.font = NSFont(name: "Helvetica Neue Light", size: fontSize)
+      fn(label, x, y, w, h)
+      x += w
     }
   }
 
