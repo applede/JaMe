@@ -10,7 +10,11 @@ import Cocoa
 
 class LabelView: NSView {
   var stringValue: NSString?
-  var textColor: NSColor?
+  var textColor: NSColor? {
+    didSet {
+      needsDisplay = true
+    }
+  }
   var font: NSFont?
 
   override init(frame frameRect: NSRect) {
@@ -31,5 +35,13 @@ class LabelView: NSView {
       str.drawAtPoint(NSPoint(x: (frame.width - size.width) / 2, y: (frame.height - size.height) / 2),
                       withAttributes: attrs)
     }
+  }
+
+  func select() {
+    textColor = selectedColor()
+  }
+
+  func deselect() {
+    textColor = unselectedColor()
   }
 }
