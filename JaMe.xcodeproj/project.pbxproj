@@ -15,6 +15,8 @@
 		18D19BB019EEA99300C1A35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D19BAE19EEA99300C1A35C /* Main.storyboard */; };
 		18D19BBC19EEA99300C1A35C /* JaMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BBB19EEA99300C1A35C /* JaMeTests.swift */; };
 		18D19BC619EEAFCB00C1A35C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BC519EEAFCB00C1A35C /* WindowController.swift */; };
+		18F70E5F1A18D99A007B1141 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F70E5D1A18D99A007B1141 /* HomeViewController.swift */; };
+		18F70E601A18D99A007B1141 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F70E5E1A18D99A007B1141 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		18D19BBB19EEA99300C1A35C /* JaMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaMeTests.swift; sourceTree = "<group>"; };
 		18D19BC519EEAFCB00C1A35C /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		18D19BC719EEB6DE00C1A35C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		18F70E5D1A18D99A007B1141 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18F70E5E1A18D99A007B1141 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +88,9 @@
 			children = (
 				18D19BA819EEA99300C1A35C /* AppDelegate.swift */,
 				18D19BC519EEAFCB00C1A35C /* WindowController.swift */,
-				18D19BAA19EEA99300C1A35C /* ViewController.swift */,
+				18F70E611A18EE2D007B1141 /* Controller */,
 				18D19BAC19EEA99300C1A35C /* Images.xcassets */,
-				18D19BAE19EEA99300C1A35C /* Main.storyboard */,
+				18F70E621A18F0DE007B1141 /* Interface */,
 				18D19BA619EEA99300C1A35C /* Supporting Files */,
 				18D19BC719EEB6DE00C1A35C /* MyPlayground.playground */,
 				180452D81A0F938900CE7C77 /* util.swift */,
@@ -118,6 +122,24 @@
 				18D19BBA19EEA99300C1A35C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18F70E611A18EE2D007B1141 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18D19BAA19EEA99300C1A35C /* ViewController.swift */,
+				18F70E5D1A18D99A007B1141 /* HomeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		18F70E621A18F0DE007B1141 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				18D19BAE19EEA99300C1A35C /* Main.storyboard */,
+				18F70E5E1A18D99A007B1141 /* HomeViewController.xib */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +224,7 @@
 			files = (
 				18D19BAD19EEA99300C1A35C /* Images.xcassets in Resources */,
 				18D19BB019EEA99300C1A35C /* Main.storyboard in Resources */,
+				18F70E601A18D99A007B1141 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +246,7 @@
 				18D19BC619EEAFCB00C1A35C /* WindowController.swift in Sources */,
 				18D19BA919EEA99300C1A35C /* AppDelegate.swift in Sources */,
 				1847667A1A14ED84003D6FB0 /* LabelView.swift in Sources */,
+				18F70E5F1A18D99A007B1141 /* HomeViewController.swift in Sources */,
 				180452D91A0F938900CE7C77 /* util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
